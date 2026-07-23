@@ -1,0 +1,301 @@
+@import 'tailwindcss';
+
+/*
+ * ═══════════════════════════════════════════════════════
+ *  LKtechnology 品牌配色体系 & 对比度弱化参数说明
+ * ═══════════════════════════════════════════════════════
+ *
+ *  设计原则：蓝白工业风，视觉柔和，长时浏览不刺眼
+ *
+ *  ┌─────────────────────────────────────────────────────┐
+ *  │ 页面顶部栏 (PageBanner / 子页面标题区)              │
+ *  │─────────────────────────────────────────────────────│
+ *  │ 背景渐变：from #12378f → via #1947b3 → to #12378f  │
+ *  │          (primary-dark → primary → primary-dark)    │
+ *  │ 标题文字：#c5d4f0 (柔光蓝白)                       │
+ *  │          ─ 与背景平均对比度 ≈ 4.2:1 (WCAG AA)       │
+ *  │          ─ 对比纯白 #fff (≈8.6:1) 降低约 50%        │
+ *  │ 副标题：  rgba(255,255,255,0.55)                   │
+ *  │          ─ 与背景对比度 ≈ 2.8:1                     │
+ *  │─────────────────────────────────────────────────────│
+ *  │ 纯白 #FFFFFF → 用于导航栏 / CTA按钮 / 首页Hero      │
+ *  │ 柔白 #c5d4f0 → 用于页面大标题 (降低视觉冲击)        │
+ *  │ 半透白 55%   → 用于次要描述文字                     │
+ *  └─────────────────────────────────────────────────────┘
+ *
+ *  ┌─────────────────────────────────────────────────────┐
+ *  │ 首页标语发光动画 (slogan-glow)                      │
+ *  │─────────────────────────────────────────────────────│
+ *  │ 发光色：品牌蓝 #1947b3 + 品牌青 #36a2d0            │
+ *  │ 白色柔光：rgba(255,255,255,0.22) max               │
+ *  │ 初始透明度：0.4 → 峰值：1.0 (60%处到达)            │
+ *  │ 动画周期：7s ease-in-out 循环                       │
+ *  │ 效果：无大面积闪烁、无高频跳动，仅平缓微光渐变      │
+ *  └─────────────────────────────────────────────────────┘
+ */
+
+/* LKtechnology Brand Theme - Tailwind CSS v4 */
+@theme {
+  /* Brand Colors */
+  --color-primary: #1947b3;
+  --color-primary-light: #3d6fd9;
+  --color-primary-dark: #12378f;
+  --color-accent: #36a2d0;
+  --color-accent-light: #e8f4f9;
+  --color-accent-dark: #2b8ab0;
+
+  /* Neutral Scale */
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-500: #64748b;
+  --color-neutral-600: #475569;
+  --color-neutral-700: #334155;
+  --color-neutral-800: #1e293b;
+  --color-neutral-900: #0f172a;
+  --color-neutral-950: #020617;
+
+  /* Semantic */
+  --color-footer-bg: #0f172a;
+  --color-success: #16a34a;
+  --color-error: #dc2626;
+  --color-warning: #f59e0b;
+
+  /* Typography */
+  --font-sans: 'Inter', 'SF Pro Display', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing */
+  --spacing-section: 5rem;
+  --spacing-section-sm: 3rem;
+
+  /* Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  --shadow-card-hover: 0 4px 12px 0 rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
+  --shadow-nav: 0 1px 3px 0 rgb(0 0 0 / 0.06);
+}
+
+/* Base Styles */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-neutral-800 font-sans leading-relaxed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight text-neutral-900;
+  }
+
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+  h4 { @apply text-xl md:text-2xl; }
+
+  p {
+    @apply leading-7 text-neutral-700;
+  }
+
+  a {
+    @apply text-primary transition-colors duration-200;
+    &:hover {
+      @apply text-primary-light;
+    }
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-primary-dark;
+  }
+}
+
+/* Component Classes */
+@layer components {
+  .section-container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+
+  .section-alt {
+    @apply bg-neutral-50;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white
+           shadow-sm transition-all duration-200 hover:bg-primary-light hover:shadow-md
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg border border-neutral-300 bg-white
+           px-6 py-3 text-sm font-medium text-neutral-700 transition-all duration-200
+           hover:border-primary hover:text-primary hover:bg-accent-light
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-lg border border-primary
+           px-6 py-3 text-sm font-medium text-primary transition-all duration-200
+           hover:bg-primary hover:text-white
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+  }
+
+  .card {
+    @apply rounded-xl border border-neutral-200 bg-white p-6 shadow-card
+           transition-all duration-300 hover:shadow-card-hover;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-neutral-900 text-center;
+  }
+
+  .section-subheading {
+    @apply mt-4 text-lg text-neutral-500 text-center max-w-2xl mx-auto;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/*
+ * ─── 首页标语视觉样式 ─────────────────────────────────
+ *
+ * 设计逻辑：
+ *   color: rgba(255,255,255,0.85) — 高透白，直接与深蓝背景自然融合
+ *   无容器包装、无渐变填充、无 text-shadow、无 backdrop-filter
+ *   文字半透本色实现"从背景透出"，无任何轮廓分隔感
+ * ─────────────────────────────────────────────────────
+ */
+.slogan-text {
+  /* 【可调】文字颜色 — 数值越高越白/越实 */
+  color: rgba(255, 255, 255, 0.85);
+  /* 移除原有渐变填充与辉光，保留字号/字重由 Tailwind 控制 */
+}
+
+/* ─── 磨砂玻璃底板：已移除 ──
+ * 原 .hero-text-panel 的 backdrop-filter + background + border-radius
+ * 会在文字周围形成可见矩形边界，与"无轮廓分隔"需求冲突。
+ * 文字现直接以 rgba(255,255,255,0.85) 半透本色落在背景上，
+ * 通过 translucency 自然融合，无需任何容器包装。
+ */
+
+/*
+ * ─── Hero 入场动画 ─────────────────────────────────
+ * 背景容器先显现 → 文字延迟 0.15s 随之浮出
+ *
+ * 时序：
+ *   背景容器  0s     → 0.8s ease-out  (opacity 0→1)
+ *   文字块    0.15s  → 0.8s ease-out  (opacity 0→1 + translateY 20px→0)
+ *
+ * 性能：仅使用 transform + opacity，不触发 layout/paint
+ * ─────────────────────────────────────────────────────
+ */
+@keyframes heroBgReveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes heroTextReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+
+/* 背景容器动画类 */
+.hero-bg-animate {
+  animation: heroBgReveal 0.8s ease-out forwards;
+}
+
+/* 文字块动画类 — 比背景晚 0.15s */
+.hero-text-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  visibility: hidden;
+  animation: heroTextReveal 0.8s ease-out 0.15s forwards;
+}
+
+/* 无障碍：用户开启减少动画时，直接显示最终状态 */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-animate {
+    animation: none;
+    opacity: 1;
+  }
+
+  .hero-text-animate {
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+
+/*
+ * ─── 内页 Banner 标题样式 ─────────────────────────────
+ * 与首页 .slogan-text 完全一致的渐变填充 + 荧光质感
+ * 作用于所有子页面顶部蓝色 Banner 区域标题
+ * ─────────────────────────────────────────────────────
+ */
+.banner-title {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f0f6fb 40%,
+    #dceef5 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  text-shadow:
+    0 0 12px rgba(255, 255, 255, 0.18),
+    0 0 24px rgba(54, 162, 208, 0.18),
+    0 0 44px rgba(25, 71, 179, 0.12);
+}
+
+/* 尊重用户无障碍偏好 */
+.reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "Metadata": {
+    "description": "LKtechnology specializes in data governance and industrial internet. We provide data middle platform, MES/ERP/CRM/SCM/WMS development, and IT outsourcing for manufacturing enterprises."
+  },
+  "HomePage": {
+    "meta": {
+      "title": "Home",
+      "description": "LKtechnology - Guangxi Industrial Internet & Data Governance Provider. Specializing in data governance, manufacturing systems, and IT outsourcing."
+    },
+    "hero": {
+      "title": "Drive Manufacturing with Data, Reshape Industry with Technology",
+      "subtitle": "Full-chain digital solutions for manufacturing enterprises through data governance and industrial internet",
+      "ctaPrimary": "Schedule Demo",
+      "ctaSecondary": "Our Products"
+    },
+    "features": {
+      "title": "Core Business",
+      "subtitle": "Three business pillars covering the full-chain digital needs of manufacturing enterprises",
+      "items": [
+        {
+          "title": "Full-Chain Data Governance",
+          "description": "Data middle platform, ETL, iPaaS, BI visualization, data dashboards, and full lifecycle data asset management to build enterprise data-driven capabilities."
+        },
+        {
+          "title": "Custom Manufacturing Systems",
+          "description": "MES/ERP/CRM/SCM/WMS/EMS development, plus vertical solutions for roll management, energy management, and livestock sales systems."
+        },
+        {
+          "title": "IT Talent Outsourcing",
+          "description": "On-site development, project implementation, and operations services. 70+ elite professionals, 90% R&D engineers, DAMA China certified implementation team."
+        }
+      ]
+    },
+    "clients": {
+      "title": "Our Partners"
+    },
+    "cases": {
+      "title": "Benchmark Cases",
+      "subtitle": "8 benchmark projects showcasing digital transformation results"
+    },
+    "news": {
+      "title": "News & Insights",
+      "subtitle": "Company updates and technical articles"
+    },
+    "cta": {
+      "title": "Start Your Digital Transformation Journey",
+      "subtitle": "Contact us now for a customized solution and demo"
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "Who We Are",
+      "description": "Learn about LKtechnology - Founded in 2020, 70+ professionals, DAMA certified, focused on data governance and industrial internet."
+    },
+    "intro": {
+      "title": "About Us",
+      "content": "Guangxi Luokuang Information Technology Co., Ltd. (LKtechnology), founded in 2020, is a high-tech enterprise focused on data governance and industrial internet. Headquartered in Liuzhou, Guangxi, we have 70+ elite professionals, over 90% of whom are R&D engineers. As a DAMA China certified implementation team, we are committed to driving manufacturing digital transformation through technology."
+    },
+    "mission": {
+      "title": "Mission & Vision",
+      "mission": "Empower manufacturing with data and technology, driving industrial intelligence",
+      "vision": "Become China's leading industrial internet and data governance service provider"
+    },
+    "values": {
+      "title": "Core Values",
+      "items": [
+        { "title": "Tech-Driven", "description": "Continuous investment in R&D to maintain competitive technical advantage" },
+        { "title": "Client First", "description": "Deep understanding of client business scenarios with tailored solutions" },
+        { "title": "Practical Innovation", "description": "Solve real problems with innovative thinking to break through technical bottlenecks" }
+      ]
+    },
+    "timeline": {
+      "title": "Company History"
+    },
+    "team": {
+      "title": "Leadership Team"
+    },
+    "certifications": {
+      "title": "Certifications & Awards"
+    }
+  },
+  "ProductsPage": {
+    "meta": {
+      "title": "Products & Services",
+      "description": "Full-chain data governance, custom manufacturing systems, and IT outsourcing — three core business pillars for enterprise digital transformation."
+    },
+    "title": "Products & Services",
+    "subtitle": "Three business pillars covering the full spectrum of digital transformation needs",
+    "categories": {
+      "data_products": "Data Products",
+      "enterprise_apps": "Enterprise Apps",
+      "talent_services": "Talent Services"
+    }
+  },
+  "SolutionsPage": {
+    "meta": {
+      "title": "Industry Solutions",
+      "description": "Digital transformation solutions for metallurgy, automotive, agriculture, logistics, new energy, and general manufacturing."
+    },
+    "title": "Industry Solutions",
+    "subtitle": "Deep expertise across six vertical industries with precise digital transformation solutions"
+  },
+  "CasesPage": {
+    "meta": {
+      "title": "Success Cases",
+      "description": "8 benchmark projects including Liugang logistics data platform, Baojun process management system, and more."
+    },
+    "title": "Success Cases",
+    "subtitle": "8 benchmark projects spanning metallurgy, automotive, agriculture, logistics, and new energy"
+  },
+  "NewsPage": {
+    "meta": {
+      "title": "News",
+      "description": "Latest company news, industrial digitalization technical articles, and industry insights from LKtechnology."
+    },
+    "title": "News & Insights",
+    "subtitle": "Company news, technical articles, and industry insights"
+  },
+  "CareersPage": {
+    "meta": {
+      "title": "Careers",
+      "description": "Join LKtechnology — 70+ elite tech team, focused on industrial internet and data governance. Submit your resume today."
+    },
+    "title": "Careers",
+    "subtitle": "Join us in driving industrial digital transformation",
+    "noJobs": "No open positions at the moment. Please check back later."
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "Contact Us",
+      "description": "Contact LKtechnology — address, phone, email, and online inquiry form."
+    },
+    "title": "Contact Us",
+    "subtitle": "We look forward to collaborating with you on your digital transformation journey",
+    "formTitle": "Online Inquiry",
+    "info": {
+      "title": "Contact Information",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Business Hours",
+      "hoursValue": "Mon-Fri 9:00-18:00"
+    }
+  },
+  "Common": {
+    "learnMore": "Learn More",
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "contactUs": "Contact Us",
+    "getDemo": "Get Demo",
+    "download": "Download",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "noData": "No Data",
+    "backToList": "Back to List",
+    "share": "Share"
+  }
+}

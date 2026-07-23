@@ -1,0 +1,159 @@
+{
+  "Metadata": {
+    "description": "广西箩筐信息科技有限公司(LKtechnology)专注数据治理与工业互联网，提供数据中台、MES/ERP/CRM/SCM/WMS系统开发、技术人力外包服务。服务柳钢、上汽通用五菱、柳工集团等行业龙头。"
+  },
+  "HomePage": {
+    "meta": {
+      "title": "首页",
+      "description": "LKtechnology箩筐信息科技 - 广西工业互联网与数据治理服务商。专注数据治理、制造业系统开发、IT外包。"
+    },
+    "hero": {
+      "title": "以数据驱动制造，以技术重塑工业",
+      "subtitle": "专注数据治理与工业互联网，为制造企业提供全链路数字化解决方案",
+      "ctaPrimary": "预约演示",
+      "ctaSecondary": "了解我们的产品"
+    },
+    "features": {
+      "title": "核心业务",
+      "subtitle": "三大业务板块，覆盖制造企业全链路数字化需求",
+      "items": [
+        {
+          "title": "全链路数据治理",
+          "description": "数据中台、ETL、iPaaS、BI可视化、数据大屏、数据资产全生命周期管理，帮助企业建立完整的数据驱动能力。"
+        },
+        {
+          "title": "制造业定制系统开发",
+          "description": "MES/ERP/CRM/SCM/WMS/EMS等制造执行与管理系统开发，轧辊管理、能源管理、养殖销售等垂直领域解决方案。"
+        },
+        {
+          "title": "技术人力外包",
+          "description": "驻场开发、项目实施、运维服务，70+精英团队，90%技术研发人员，DAMA中国认证实施团队保障交付质量。"
+        }
+      ]
+    },
+    "clients": {
+      "title": "合作伙伴"
+    },
+    "cases": {
+      "title": "标杆案例",
+      "subtitle": "8大行业标杆项目，见证数字化转型实战成果"
+    },
+    "news": {
+      "title": "新闻动态",
+      "subtitle": "企业资讯与技术干货"
+    },
+    "cta": {
+      "title": "开启您的数字化转型之旅",
+      "subtitle": "立即联系我们，获取专属解决方案与演示"
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "关于我们",
+      "description": "了解广西箩筐信息科技有限公司 - 成立于2020年，70+精英团队，DAMA认证，专注数据治理与工业互联网。"
+    },
+    "intro": {
+      "title": "企业简介",
+      "content": "广西箩筐信息科技有限公司（LKtechnology）成立于2020年，是一家专注数据治理与工业互联网的高新技术企业。公司总部位于广西柳州，拥有70余名精英员工，其中90%以上为技术研发人员。作为DAMA中国认证实施团队，我们致力于以技术驱动制造企业数字化转型。"
+    },
+    "mission": {
+      "title": "使命与愿景",
+      "mission": "以数据与技术赋能制造业，推动工业智能化升级",
+      "vision": "成为国内领先的工业互联网与数据治理服务商"
+    },
+    "values": {
+      "title": "核心价值观",
+      "items": [
+        { "title": "技术驱动", "description": "持续投入技术研发，保持行业领先的技术竞争力" },
+        { "title": "客户至上", "description": "深入理解客户业务场景，提供量身定制的解决方案" },
+        { "title": "务实创新", "description": "脚踏实地解决问题，以创新思维突破技术瓶颈" }
+      ]
+    },
+    "timeline": {
+      "title": "发展历程"
+    },
+    "team": {
+      "title": "核心团队"
+    },
+    "certifications": {
+      "title": "资质荣誉"
+    }
+  },
+  "ProductsPage": {
+    "meta": {
+      "title": "产品与服务",
+      "description": "全链路数据治理、制造业定制系统开发、技术人力外包三大核心业务，覆盖企业数字化转型全场景。"
+    },
+    "title": "产品与服务",
+    "subtitle": "三大业务板块，覆盖制造企业全链路数字化需求",
+    "categories": {
+      "data_products": "数据产品",
+      "enterprise_apps": "企业应用",
+      "talent_services": "人才服务"
+    }
+  },
+  "SolutionsPage": {
+    "meta": {
+      "title": "行业解决方案",
+      "description": "冶金、汽车制造、畜牧农业、物流运输、新能源环保、通用制造六大行业数字化转型解决方案。"
+    },
+    "title": "行业解决方案",
+    "subtitle": "深耕六大垂直行业，提供精准数字化转型方案"
+  },
+  "CasesPage": {
+    "meta": {
+      "title": "成功案例",
+      "description": "柳钢物流一体化数据中台、宝骏工艺文件管理系统等8个标杆项目，见证工业数字化转型实战成果。"
+    },
+    "title": "成功案例",
+    "subtitle": "8大标杆项目，覆盖冶金、汽车、畜牧、物流、新能源等行业"
+  },
+  "NewsPage": {
+    "meta": {
+      "title": "新闻动态",
+      "description": "广西箩筐信息科技最新企业资讯、工业数字化技术干货、行业洞察。"
+    },
+    "title": "新闻动态",
+    "subtitle": "企业资讯、技术干货与行业洞察"
+  },
+  "CareersPage": {
+    "meta": {
+      "title": "人才招聘",
+      "description": "加入广西箩筐信息科技，70+技术精英团队，专注工业互联网与数据治理，欢迎投递简历。"
+    },
+    "title": "人才招聘",
+    "subtitle": "加入我们，共同推动工业数字化变革",
+    "noJobs": "暂无在招职位，敬请关注后续更新"
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "联系我们",
+      "description": "广西箩筐信息科技有限公司联系方式 - 地址、电话、在线咨询表单。"
+    },
+    "title": "联系我们",
+    "subtitle": "期待与您合作，共同探索数字化转型之路",
+    "formTitle": "在线咨询",
+    "info": {
+      "title": "联系信息",
+      "address": "地址",
+      "phone": "电话",
+      "email": "邮箱",
+      "hours": "工作时间",
+      "hoursValue": "周一至周五 9:00-18:00"
+    }
+  },
+  "Common": {
+    "learnMore": "了解更多",
+    "readMore": "阅读全文",
+    "viewAll": "查看全部",
+    "contactUs": "联系我们",
+    "getDemo": "预约演示",
+    "download": "下载资料",
+    "submit": "提交",
+    "cancel": "取消",
+    "loading": "加载中...",
+    "noData": "暂无数据",
+    "backToList": "返回列表",
+    "share": "分享"
+  }
+}

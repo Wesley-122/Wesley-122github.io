@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1b4332"/>
+      <stop offset="50%" stop-color="#2d6a4f"/>
+      <stop offset="100%" stop-color="#40916c"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- Barn buildings -->
+  <rect x="50" y="150" width="250" height="180" rx="6" fill="#1b4332" opacity="0.5"/>
+  <polygon points="30,150 175,50 320,150" fill="#2d3436" opacity="0.4"/>
+  <rect x="450" y="180" width="200" height="150" rx="6" fill="#1b4332" opacity="0.4"/>
+  <polygon points="430,180 550,100 670,180" fill="#2d3436" opacity="0.3"/>
+  <!-- Ground/grass -->
+  <rect x="0" y="330" width="800" height="120" fill="#1b4332" opacity="0.7"/>
+  <!-- Sun -->
+  <circle cx="650" cy="80" r="40" fill="#fdcb6e" opacity="0.3"/>
+  <text x="400" y="420" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#ffffff" opacity="0.7">大丰禽业 · 智慧养殖</text>
+</svg>
