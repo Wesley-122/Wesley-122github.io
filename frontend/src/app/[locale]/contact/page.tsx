@@ -1,6 +1,7 @@
 import SectionWrapper from "@/components/shared/SectionWrapper";
 import PageBanner from "@/components/shared/PageBanner";
 import ContactForm from "@/components/forms/ContactForm";
+import ContactMap from "@/components/shared/ContactMapLoader";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -78,10 +79,8 @@ export default async function ContactPage({ params }: Props) {
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="mt-8 flex h-48 items-center justify-center rounded-xl bg-neutral-100 text-sm text-neutral-400">
-              {isZh ? "地图加载区域（预留百度地图API接口）" : "Map Area (Baidu Maps API Ready)"}
-            </div>
+            {/* Map */}
+            <ContactMap className="mt-8" />
           </div>
         </div>
       </SectionWrapper>
