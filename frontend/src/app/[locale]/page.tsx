@@ -24,40 +24,39 @@ export default async function HomePage({ params }: Props) {
   const featureItems = [
     {
       icon: <Database className="h-7 w-7" />,
-      title: isZh ? "全链路数据治理" : "Full-Chain Data Governance",
+      title: isZh ? "数据产品实施覆盖" : "Data Product Implementation",
       description: isZh
-        ? "数据中台、ETL、iPaaS、BI可视化、数据大屏、数据资产全生命周期管理，帮助企业建立完整的数据驱动能力。"
-        : "Data middle platform, ETL, iPaaS, BI visualization, data dashboards, and full lifecycle data asset management.",
+        ? "依托资深数据治理团队，提供数据盘点、标准制定至平台落地的全周期服务。助力企业盘活数据资产，夯实数据底座，全面驱动科学决策。"
+        : "Full-cycle data services from data inventory and standards to platform deployment. Empowers enterprises to activate data assets and drive scientific decision-making.",
       href: `/${locale}/products-services`,
     },
     {
       icon: <Code2 className="h-7 w-7" />,
-      title: isZh ? "制造业定制系统开发" : "Custom Manufacturing Systems",
+      title: isZh ? "定制化开发服务" : "Custom Development Services",
       description: isZh
-        ? "MES/ERP/CRM/SCM/WMS/EMS等制造执行与管理系统开发，轧辊管理、能源管理、养殖销售等垂直领域解决方案。"
-        : "MES/ERP/CRM/SCM/WMS/EMS development, plus vertical solutions for roll management, energy management, and more.",
+        ? "聚焦企业核心业务场景，提供需求分析、架构设计至开发上线的全流程定制。采用敏捷模式，确保系统高效交付、灵活扩展，精准匹配创新需求。"
+        : "Full-process customization from requirements analysis and architecture design to development and launch. Agile delivery ensures flexible, scalable solutions.",
       href: `/${locale}/products-services`,
     },
     {
       icon: <Users className="h-7 w-7" />,
-      title: isZh ? "技术人力外包" : "IT Talent Outsourcing",
+      title: isZh ? "信息化人才赋能" : "IT Talent Empowerment",
       description: isZh
-        ? "驻场开发、项目实施、运维服务，70+精英团队，90%技术研发人员，DAMA中国认证实施团队保障交付质量。"
-        : "On-site development, project implementation, and operations. 70+ professionals, 90% R&D, DAMA certified.",
+        ? "依托专业人才资源池，提供软件开发、项目实施与运维保障等全岗位支持。按需灵活调配，降低企业用工成本，保障项目高效推进与技术经验沉淀。"
+        : "Professional talent pool providing software development, project implementation, and operations support. Flexible deployment reduces costs and ensures project success.",
       href: `/${locale}/products-services`,
     },
   ];
 
-  // Client logos - all from company reference materials
+  // Client logos - from PDF brochure page 1 logo wall
   const clientLogos = [
-    { name: "柳钢集团", logoUrl: "/images/clients/cngr-logo.svg" },
-    { name: "上汽通用五菱", logoUrl: "/images/clients/sgmw-logo.svg" },
-    { name: "柳工集团", logoUrl: "/images/clients/liugong-logo.svg" },
-    { name: "唐人神", logoUrl: "/images/clients/trs-logo.svg" },
-    { name: "赛克瑞浦", logoUrl: "/images/clients/skrep-logo.svg" },
-    { name: "大丰禽业", logoUrl: "/images/clients/dafeng-logo.svg" },
-    { name: "柳钢东信", logoUrl: "/images/clients/dongxin-logo.svg" },
-    { name: "OK出行", logoUrl: "/images/clients/ok-logo.svg" },
+    { name: "柳钢集团", logoUrl: "/images/clients/cngr-logo.png" },
+    { name: "柳工集团", logoUrl: "/images/clients/liugong-logo.png" },
+    { name: "上汽通用五菱", logoUrl: "/images/clients/sgmw-logo.png" },
+    { name: "东风柳汽", logoUrl: "/images/clients/dflq-logo.png" },
+    { name: "唐人神集团", logoUrl: "/images/clients/trs-logo.png" },
+    { name: "百圣食品", logoUrl: "/images/clients/baisheng-logo.png" },
+    { name: "OK出行", logoUrl: "/images/clients/ok-logo.png" },
   ];
 
   // Featured cases - from the 8 benchmark projects
@@ -66,34 +65,34 @@ export default async function HomePage({ params }: Props) {
       slug: "liugang-logistics-data-platform",
       title: isZh ? "柳钢物流一体化数据中台" : "Liugang Logistics Data Middle Platform",
       clientName: isZh ? "柳钢集团" : "Liugang Group",
-      industry: isZh ? "冶金" : "Metallurgy",
+      industry: isZh ? "冶金制造" : "Metallurgy Mfg",
       summary: isZh
-        ? "为柳钢集团构建物流一体化数据中台，打通采购、仓储、运输全链路数据，实现物流数据实时分析与智能调度。"
-        : "Built an integrated logistics data middle platform for Liugang Group, enabling real-time analysis and intelligent scheduling.",
+        ? "构建涵盖合同、价格、运力、仓储、港口等中心板块，打通各基地物流数据壁垒，实现物流过程透明化、数据共享与互联互通，汽运与联运成本有效降低。"
+        : "Built logistics data platform covering contracts, pricing, capacity, warehousing, and ports. Enabled transparent logistics, data sharing, and significant cost reduction.",
       technologies: ["数据中台", "ETL", "BI", "iPaaS"],
-      thumbnailUrl: "/images/cases/steel-plant.svg",
+      thumbnailUrl: "/images/cases/steel-plant.png",
     },
     {
       slug: "baojun-process-management",
-      title: isZh ? "宝骏工艺文件管理系统" : "Baojun Process Document Management System",
+      title: isZh ? "宝骏工艺文件管理系统" : "Baojun Process Document Mgmt",
       clientName: isZh ? "上汽通用五菱" : "SGMW",
-      industry: isZh ? "汽车制造" : "Automotive",
+      industry: isZh ? "汽车工业" : "Automotive Industry",
       summary: isZh
-        ? "为上汽通用五菱宝骏基地开发工艺文件管理系统，实现生产工艺文件的数字化管理与版本控制。"
-        : "Developed a process document management system for SGMW Baojun, enabling digital management and version control.",
+        ? "聚焦总装车间工艺数据全生命周期管理，建立统一文控体系与版本管理机制，实现工艺文件线上审批、安全共享与快速下发，文件流转效率大幅提升。"
+        : "Focused on assembly workshop process data lifecycle management. Established unified document control with version management, online approval, and secure sharing.",
       technologies: ["MES", "文档管理", "Vue.js"],
-      thumbnailUrl: "/images/cases/auto-assembly.svg",
+      thumbnailUrl: "/images/cases/auto-assembly.png",
     },
     {
-      slug: "liugang-roll-management",
-      title: isZh ? "柳钢中金轧辊全生命周期管理系统" : "Liugang Roll Lifecycle Management System",
-      clientName: isZh ? "柳钢中金" : "Liugang Zhongjin",
-      industry: isZh ? "冶金" : "Metallurgy",
+      slug: "saike-energy-management",
+      title: isZh ? "赛克瑞浦能源管理系统" : "Saikeruipu Energy Management",
+      clientName: isZh ? "赛克瑞浦" : "Saikeruipu",
+      industry: isZh ? "能源环保" : "Energy & Environment",
       summary: isZh
-        ? "开发轧辊全生命周期管理系统，覆盖轧辊采购、使用、研磨、报废全过程，降低轧辊消耗成本。"
-        : "Roll lifecycle management covering procurement, usage, grinding, and retirement to reduce roll consumption costs.",
-      technologies: ["Java", "Spring Boot", "物联网", "MySQL"],
-      thumbnailUrl: "/images/cases/steel-rolling.svg",
+        ? "为20GWh动力电池项目打造统一能源管理系统，覆盖水电气热全介质监测与优化调度，实现「降本、提效、增绿」目标，保障大规模制造运营可持续性。"
+        : "Built unified energy management system for 20GWh battery project. Covers all media monitoring with optimized scheduling for cost, efficiency, and sustainability goals.",
+      technologies: ["IoT", "能源管理", "大屏", "碳监测"],
+      thumbnailUrl: "/images/cases/battery-energy.png",
     },
   ];
 
@@ -136,17 +135,17 @@ export default async function HomePage({ params }: Props) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            name: isZh ? "广西箩筐信息科技有限公司" : "Guangxi Luokuang Information Technology Co., Ltd.",
+            name: isZh ? "广西箩筐信息科技有限公司" : "GUANGXI LUOKUANG INFORMATION TECHNOLOGY CORPORATION",
             alternateName: "LKtechnology",
             url: `https://www.lk-it.cn/${locale}`,
             description: isZh
-              ? "专注数据治理与工业互联网，技术驱动制造企业数字化转型"
+              ? "专注数据治理与工业互联网，技术驱动企业数字化转型"
               : "Driving manufacturing digital transformation through data governance and industrial internet.",
-            foundingDate: "2020",
+            foundingDate: "2020-09",
             numberOfEmployees: "70",
             address: {
               "@type": "PostalAddress",
-              addressLocality: "Liuzhou",
+              addressLocality: "Nanning",
               addressRegion: "Guangxi",
               addressCountry: "CN",
             },
@@ -157,10 +156,10 @@ export default async function HomePage({ params }: Props) {
       {/* 1. Hero Section */}
       <HeroSection
         locale={locale as Locale}
-        title={isZh ? "以数据驱动制造，以技术重塑工业" : "Drive Manufacturing with Data, Reshape Industry with Technology"}
+        title={isZh ? "与您携手 · 共建未来" : "Joining Hands, Building the Future Together"}
         subtitle={isZh
-          ? "专注数据治理与工业互联网，为制造企业提供全链路数字化解决方案"
-          : "Full-chain digital solutions for manufacturing enterprises through data governance and industrial internet"}
+          ? "专注数据治理与工业互联网，技术驱动企业数字化转型"
+          : "Driving enterprise digital transformation through data governance and industrial internet"}
         ctaPrimary={isZh ? "预约演示" : "Schedule Demo"}
         ctaSecondary={isZh ? "了解我们的产品" : "Our Products"}
       />
@@ -171,8 +170,8 @@ export default async function HomePage({ params }: Props) {
           locale={locale as Locale}
           title={isZh ? "核心业务" : "Core Business"}
           subtitle={isZh
-            ? "三大业务板块，覆盖制造企业全链路数字化需求"
-            : "Three business pillars covering the full-chain digital needs of manufacturing enterprises"}
+            ? "三大业务板块，为企业提供全方位的数字化转型解决方案"
+            : "Three business pillars providing comprehensive digital transformation solutions"}
           features={featureItems}
         />
       </SectionWrapper>
@@ -190,7 +189,7 @@ export default async function HomePage({ params }: Props) {
       <SectionWrapper>
         <SectionHeading
           title={isZh ? "标杆案例" : "Benchmark Cases"}
-          subtitle={isZh ? "8大行业标杆项目，见证数字化转型实战成果" : "8 benchmark projects showcasing digital transformation results"}
+          subtitle={isZh ? "覆盖冶金制造、汽车工业、能源环保等行业的标杆项目" : "Benchmark projects across metallurgy, automotive, energy and more"}
         />
         <div className="grid gap-8 md:grid-cols-3">
           {featuredCases.map((caseItem, idx) => (
@@ -251,10 +250,10 @@ export async function generateMetadata({ params }: Props) {
   const isZh = locale === "zh-CN";
 
   return {
-    title: isZh ? "LKtechnology箩筐信息科技-广西工业互联网与数据治理服务商" : "LKtechnology - Industrial Internet & Data Governance Provider",
+    title: isZh ? "LKtechnology广西箩筐信息科技-数据治理与工业互联网服务商" : "LKtechnology - Data Governance & Industrial Internet Provider",
     description: isZh
-      ? "广西箩筐信息科技有限公司(LKtechnology)专注数据治理与工业互联网，提供数据中台、MES/ERP/CRM/SCM/WMS系统开发、技术人力外包服务。"
-      : "LKtechnology specializes in data governance and industrial internet. We provide data middle platform, MES/ERP/CRM/SCM/WMS development and IT outsourcing.",
+      ? "广西箩筐信息科技有限公司(LKtechnology)专注数据治理与工业互联网，提供数据产品实施覆盖、定制化开发服务、信息化人才赋能三大核心业务，DAMA中国认证团队。"
+      : "GUANGXI LUOKUANG INFORMATION TECHNOLOGY CORPORATION (LKtechnology) specializes in data governance and industrial internet. DAMA China certified team with 70+ professionals.",
     alternates: {
       canonical: `/${locale}`,
       languages: { en: "/en", "zh-CN": "/zh-CN" },

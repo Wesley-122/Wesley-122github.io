@@ -41,7 +41,7 @@ export default async function ContactPage({ params }: Props) {
                   <h4 className="font-medium text-neutral-900">{isZh ? "地址" : "Address"}</h4>
                   <div className="mt-1 space-y-1 text-sm text-neutral-500">
                     <p>{isZh ? "总部：南宁市·青秀区民族大道89号金禄大厦11层G座" : "HQ: 11F-G, Jinlu Bldg, 89 Minzu Ave, Qingxiu, Nanning"}</p>
-                    <p>{isZh ? "运营中心：柳州市·城中区桂中大道南端6号九州国际20层" : "Ops: 20F, Jiuzhou International, 6 Guizhong Ave S, Chengzhong, Liuzhou"}</p>
+                    <p>{isZh ? "运营中心：柳州市·城中区桂中大道南端6号九洲国际20层" : "Ops: 20F, Jiuzhou International, 6 Guizhong Ave S, Chengzhong, Liuzhou"}</p>
                   </div>
                 </div>
               </div>
@@ -52,7 +52,7 @@ export default async function ContactPage({ params }: Props) {
                 </div>
                 <div>
                   <h4 className="font-medium text-neutral-900">{isZh ? "电话" : "Phone"}</h4>
-                  <a href="tel:18010129259" className="mt-1 block text-sm text-neutral-500 hover:text-primary transition-colors">18010129259</a>
+                  <a href="tel:18010129259" className="mt-1 block text-sm text-neutral-500 hover:text-primary transition-colors">{isZh ? "朱政梅 · " : "Zhu Zhengmei · "}18010129259</a>
                 </div>
               </div>
 
@@ -92,7 +92,7 @@ export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
   return {
     title: (await params).locale === "zh-CN" ? "联系我们" : "Contact Us",
-    description: (await params).locale === "zh-CN" ? "广西箩筐信息科技有限公司联系方式 - 地址、电话、在线咨询表单。" : "Contact LKtechnology — address, phone, email, and online inquiry form.",
+    description: (await params).locale === "zh-CN" ? "广西箩筐信息科技有限公司联系方式 - 总部南宁、运营中心柳州、电话、在线咨询表单。" : "Contact LKtechnology — HQ in Nanning, Operations in Liuzhou, phone, email, and online inquiry form.",
     alternates: { canonical: `/${locale}/contact`, languages: { en: "/en/contact", "zh-CN": "/zh-CN/contact" } },
   };
 }

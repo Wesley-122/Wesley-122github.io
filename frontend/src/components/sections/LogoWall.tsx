@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import type { Locale } from "@/types/content";
 
 interface ClientLogo {
@@ -45,11 +46,16 @@ export default function LogoWall({ locale, title, logos }: LogoWallProps) {
           {[...logos, ...logos].map((logo, index) => (
             <div
               key={`${logo.name}-${index}`}
-              className="flex h-20 w-40 flex-shrink-0 items-center justify-center rounded-lg bg-white px-6 py-4 shadow-sm transition-all duration-300 hover:shadow-md"
+              className="flex h-20 w-40 flex-shrink-0 items-center justify-center rounded-lg bg-white px-4 py-3 shadow-sm transition-all duration-300 hover:shadow-md"
             >
-              <span className="text-sm font-semibold text-neutral-400 transition-colors hover:text-primary">
-                {logo.name}
-              </span>
+              <Image
+                src={logo.logoUrl}
+                alt={logo.name}
+                width={140}
+                height={56}
+                className="max-h-14 max-w-[140px] object-contain"
+                unoptimized
+              />
             </div>
           ))}
         </motion.div>

@@ -24,19 +24,19 @@ export default function Footer({ locale }: FooterProps) {
     {
       title: zh ? "核心业务" : "Core Business",
       links: [
-        { label: zh ? "全链路数据治理" : "Data Governance", href: `/${locale}/products-services` },
-        { label: zh ? "制造业定制系统" : "Custom Systems", href: `/${locale}/products-services` },
-        { label: zh ? "技术人力外包" : "IT Outsourcing", href: `/${locale}/products-services` },
+        { label: zh ? "数据产品实施覆盖" : "Data Product Implementation", href: `/${locale}/products-services` },
+        { label: zh ? "定制化开发服务" : "Custom Development", href: `/${locale}/products-services` },
+        { label: zh ? "信息化人才赋能" : "IT Talent Empowerment", href: `/${locale}/products-services` },
       ],
     },
     {
       title: zh ? "行业方案" : "Industry Solutions",
       links: [
-        { label: zh ? "冶金" : "Metallurgy", href: `/${locale}/industry-solutions` },
-        { label: zh ? "汽车制造" : "Automotive", href: `/${locale}/industry-solutions` },
+        { label: zh ? "冶金制造" : "Metallurgy Mfg", href: `/${locale}/industry-solutions` },
+        { label: zh ? "汽车工业" : "Automotive Industry", href: `/${locale}/industry-solutions` },
         { label: zh ? "畜牧农业" : "Agriculture", href: `/${locale}/industry-solutions` },
-        { label: zh ? "物流运输" : "Logistics", href: `/${locale}/industry-solutions` },
-        { label: zh ? "新能源环保" : "New Energy", href: `/${locale}/industry-solutions` },
+        { label: zh ? "运输物流" : "Transport Logistics", href: `/${locale}/industry-solutions` },
+        { label: zh ? "能源环保" : "Energy & Environment", href: `/${locale}/industry-solutions` },
       ],
     },
     {
@@ -60,7 +60,7 @@ export default function Footer({ locale }: FooterProps) {
           <div className="col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2">
               <Image
-                src="/images/logo/lk-brand-icon.svg"
+                src="/images/logo/lk-icon-from-pdf.png"
                 alt="LKtechnology"
                 width={36}
                 height={36}
@@ -70,8 +70,8 @@ export default function Footer({ locale }: FooterProps) {
             </div>
             <p className="mt-4 text-sm leading-relaxed text-neutral-400">
               {zh
-                ? "专注数据治理与工业互联网，技术驱动制造企业数字化转型。"
-                : "Driving manufacturing digital transformation through data governance and industrial internet."}
+                ? "专注数据治理与工业互联网，技术驱动企业数字化转型。"
+                : "Driving enterprise digital transformation through data governance and industrial internet."}
             </p>
             <div className="mt-6 space-y-3 text-sm text-neutral-400">
               <div className="flex items-start gap-2">
@@ -79,7 +79,7 @@ export default function Footer({ locale }: FooterProps) {
                 <span>
                   {zh ? "总部：南宁市·青秀区民族大道89号金禄大厦11层G座" : "HQ: 11F-G, Jinlu Bldg, 89 Minzu Ave, Qingxiu, Nanning"}
                   <br />
-                  {zh ? "运营中心：柳州市·城中区桂中大道南端6号九州国际20层" : "Ops: 20F, Jiuzhou International, 6 Guizhong Ave S, Chengzhong, Liuzhou"}
+                  {zh ? "运营中心：柳州市·城中区桂中大道南端6号九洲国际20层" : "Ops: 20F, Jiuzhou International, 6 Guizhong Ave S, Chengzhong, Liuzhou"}
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -120,7 +120,7 @@ export default function Footer({ locale }: FooterProps) {
           <p className="text-sm text-neutral-500">
             {zh
               ? `© ${new Date().getFullYear()} 广西箩筐信息科技有限公司 LKtechnology. All rights reserved.`
-              : `© ${new Date().getFullYear()} Guangxi Luokuang Information Technology Co., Ltd. All rights reserved.`}
+              : `© ${new Date().getFullYear()} GUANGXI LUOKUANG INFORMATION TECHNOLOGY CORPORATION. All rights reserved.`}
           </p>
           <div className="flex items-center gap-6 text-sm text-neutral-500">
             <Link href={`/${locale}/contact`} className="hover:text-neutral-300 transition-colors">

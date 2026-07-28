@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 /**
  * Client-side wrapper that dynamically imports ContactMap with SSR disabled.
- * Leaflet references `window` at module level, so it cannot be server-rendered.
+ * Baidu Maps API references `window` at module level, so it cannot be server-rendered.
  */
 const ContactMap = dynamic(() => import("@/components/shared/ContactMap"), {
   ssr: false,

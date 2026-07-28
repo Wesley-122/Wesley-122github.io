@@ -1,138 +1,239 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
+import { useEffect, useRef, useCallback } from "react";
 import { cn } from "@/lib/cn";
+
+/* -------------------------------------------------------------------------- */
+/*  Type declarations for Baidu Maps GL (BMapGL)                              */
+/* -------------------------------------------------------------------------- */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+declare global {
+  interface Window {
+    BMapGL: any;
+  }
+}
+type BMapInstance = any;
+/* eslint-enable @typescript-eslint/no-explicit-any */
+
+/* -------------------------------------------------------------------------- */
+/*  Constants                                                                  */
+/* -------------------------------------------------------------------------- */
+
+const BAIDU_AK = process.env.NEXT_PUBLIC_BAIDU_MAP_AK ?? "";
+const BAIDU_SCRIPT = `https://api.map.baidu.com/api?v=1.0&type=webgl&ak=${BAIDU_AK}`;
+
+const COMPANY_NAME = "箩筐科技 LKtechnology";
+const COMPANY_ADDRESS = "南宁市青秀区民族大道89号金禄大厦";
+const COMPANY_FULL = "南宁市·青秀区民族大道89号金禄大厦11层G座";
+const ZOOM = 17;
+
+/**
+ * Generate the InfoWindow HTML, optionally with precise coordinates
+ * for the "navigate" deep-link.
+ */
+function buildPopupHTML(
+  lng?: number,
+  lat?: number,
+): string {
+  const encodedAddr = encodeURIComponent(COMPANY_ADDRESS);
+  const encodedName = encodeURIComponent(COMPANY_NAME);
+
+  // Navigation links
+  const searchUrl = `https://map.baidu.com/search/${encodedAddr}?type=gc`;
+  let directionUrl = `https://api.map.baidu.com/direction?destination=${encodedAddr}&output=html&src=lktechnology`;
+
+  // If we have precise coords, use the higher-quality marker page
+  let markerUrl = "";
+  if (lng != null && lat != null) {
+    markerUrl =
+      `https://api.map.baidu.com/marker?` +
+      `location=${lat},${lng}&title=${encodedName}&content=${encodedAddr}&output=html&coord_type=bd09ll`;
+    directionUrl =
+      `https://api.map.baidu.com/direction?` +
+      `destination=latlng:${lat},${lng}|name:${encodedName}&coord_type=bd09ll&output=html&src=lktechnology`;
+  }
+
+  const viewLink = markerUrl || searchUrl;
+
+  return `
+    <div style="font-family: system-ui, -apple-system, sans-serif; min-width: 240px;">
+      <strong style="font-size: 14px; color: #171717;">${COMPANY_NAME}</strong>
+      <p style="margin: 4px 0 10px; font-size: 12px; color: #737373;">${COMPANY_FULL}</p>
+      <div style="display: flex; gap: 8px;">
+        <a href="${viewLink}"
+           target="_blank"
+           rel="noopener"
+           style="
+             display: inline-flex; align-items: center; gap: 4px;
+             padding: 5px 12px; font-size: 12px; color: #fff;
+             background: #2563EB; border-radius: 6px; text-decoration: none;
+           ">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20"/><path d="M2 12h20"/>
+          </svg>
+          ${"查看地图"}
+        </a>
+        <a href="${directionUrl}"
+           target="_blank"
+           rel="noopener"
+           style="
+             display: inline-flex; align-items: center; gap: 4px;
+             padding: 5px 12px; font-size: 12px; color: #2563EB;
+             background: #EFF6FF; border-radius: 6px; text-decoration: none;
+           ">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3,11 22,2 13,21 11,13 3,11"/>
+          </svg>
+          ${"导航至此"}
+        </a>
+      </div>
+    </div>`;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  ContactMap                                                                */
+/* -------------------------------------------------------------------------- */
 
 interface ContactMapProps {
   className?: string;
 }
 
-/** Inline SVG marker — no external image dependency (Turbopack-safe). */
-const MARKER_HTML = `
-<div style="
-  display:flex; align-items:center; justify-content:center;
-  width:32px; height:44px;
-">
-  <svg width="32" height="44" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 0C5.372 0 0 5.372 0 12c0 9 12 24 12 24s12-15 12-24C24 5.372 18.628 0 12 0z" fill="#2563EB"/>
-    <circle cx="12" cy="12" r="5" fill="white"/>
-  </svg>
-</div>`;
-
-// Marker icon created lazily to avoid module-level L.divIcon() call
-function createMarkerIcon() {
-  return L.divIcon({
-    html: MARKER_HTML,
-    className: "",
-    iconSize: [32, 44],
-    iconAnchor: [16, 44],
-    popupAnchor: [0, -44],
-  });
-}
-
-/**
- * Tile-layer sources — ordered by likelihood of working inside mainland China.
- * Falls back through the list until one loads successfully.
- */
-const TILE_SOURCES: Array<{ name: string; url: string; attribution: string }> = [
-  {
-    name: "高德",
-    url: "https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}",
-    attribution:
-      '&copy; <a href="https://www.amap.com/">高德地图</a> AutoNavi',
-  },
-  {
-    name: "OSM (tile.openstreetmap.org)",
-    url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  },
-  {
-    name: "CartoDB Positron",
-    url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
-  },
-];
-
 export default function ContactMap({ className }: ContactMapProps) {
-  const mapContainerRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<L.Map | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<BMapInstance>(null);
+  /** Store precise geocoded coords so we can rebuild the popup later. */
+  const preciseRef = useRef<{ lng: number; lat: number } | null>(null);
+  const infoWindowRef = useRef<any>(null);
+  const markerRef = useRef<any>(null);
+
+  /** (Re-)open the info window with current best coordinates. */
+  const openInfoWindow = useCallback(
+    (map: BMapInstance, pt?: { lng: number; lat: number }) => {
+      const BMapGL = window.BMapGL;
+      if (!BMapGL || !map) return;
+
+      const lng = pt?.lng ?? preciseRef.current?.lng;
+      const lat = pt?.lat ?? preciseRef.current?.lat ?? undefined;
+
+      const html = buildPopupHTML(lng, lat as number | undefined);
+      const p = pt
+        ? new BMapGL.Point(pt.lng, pt.lat)
+        : new BMapGL.Point(preciseRef.current!.lng, preciseRef.current!.lat);
+
+      if (infoWindowRef.current) {
+        // Update content instead of recreating
+        infoWindowRef.current.setContent(html);
+      } else {
+        infoWindowRef.current = new BMapGL.InfoWindow(html, {
+          width: 280,
+          title: "",
+        });
+      }
+      map.openInfoWindow(infoWindowRef.current, p);
+    },
+    [],
+  );
 
   useEffect(() => {
-    if (!mapContainerRef.current || mapInstanceRef.current) return;
+    if (!containerRef.current) return;
 
-    // Company HQ: 南宁市·青秀区民族大道89号金禄大厦
-    const HQ_COORDS: L.LatLngTuple = [22.815, 108.350];
+    let cancelled = false;
 
-    const map = L.map(mapContainerRef.current, {
-      center: HQ_COORDS,
-      zoom: 15,
-      scrollWheelZoom: false,
-      attributionControl: false,
-    });
+    function bootstrap() {
+      if (cancelled || !containerRef.current || mapRef.current) return;
 
-    // Attempt tile sources in order; stop at the first one that loads
-    let tileIndex = 0;
-    let currentLayer: L.TileLayer | null = null;
+      const BMapGL = window.BMapGL;
+      if (!BMapGL) return;
 
-    function tryNextTileSource() {
-      if (tileIndex >= TILE_SOURCES.length) return;
+      /* ---- map instance ---- */
+      const map = new BMapGL.Map(containerRef.current);
+      mapRef.current = map;
+      map.enableScrollWheelZoom(false);
 
-      const source = TILE_SOURCES[tileIndex];
-      const subdomains = source.url.includes("{s}")
-        ? ["0", "1", "2", "3"]
-        : undefined;
-
-      const layer = L.tileLayer(source.url, {
-        attribution: source.attribution,
-        maxZoom: 19,
-        ...(subdomains ? { subdomains: subdomains.map(String) } : {}),
-      });
-
-      layer.on("tileerror", () => {
-        map.removeLayer(layer);
-        tileIndex++;
-        tryNextTileSource();
-      });
-
-      layer.addTo(map);
-      currentLayer = layer;
-
-      // eslint-disable-next-line no-console
-      console.log(`[ContactMap] Trying tile source: ${source.name}`);
-    }
-
-    tryNextTileSource();
-
-    // Marker
-    L.marker(HQ_COORDS, {
-      icon: createMarkerIcon(),
-      title: "箩筐科技 LKtechnology",
-    })
-      .addTo(map)
-      .bindPopup(
-        "<strong>箩筐科技 LKtechnology</strong><br/>南宁市·青秀区民族大道89号金禄大厦11层G座"
+      // Controls
+      map.addControl(new BMapGL.ScaleControl());
+      map.addControl(
+        new BMapGL.ZoomControl({ anchor: 1 /* top-right */ }),
       );
 
-    // Fix tile layout after CSS has settled (handles rounded corners etc.)
-    setTimeout(() => map.invalidateSize(), 100);
+      /* ---- initial approximate centre (BD-09) ---- */
+      const approx = new BMapGL.Point(108.357, 22.819);
+      map.centerAndZoom(approx, ZOOM);
 
-    mapInstanceRef.current = map;
+      /* ---- marker ---- */
+      const marker = new BMapGL.Marker(approx);
+      markerRef.current = marker;
+      map.addOverlay(marker);
+
+      // Default popup (before geocode returns)
+      const infoWindow = new BMapGL.InfoWindow(buildPopupHTML(), {
+        width: 280,
+        title: "",
+      });
+      infoWindowRef.current = infoWindow;
+      map.openInfoWindow(infoWindow, approx);
+
+      marker.addEventListener("click", () => {
+        openInfoWindow(map);
+      });
+
+      /* ---- geocode for precise position ---- */
+      const geocoder = new BMapGL.Geocoder();
+      geocoder.getPoint(
+        COMPANY_ADDRESS,
+        (pt: { lng: number; lat: number } | null) => {
+          if (cancelled || !pt) return;
+
+          preciseRef.current = { lng: pt.lng, lat: pt.lat };
+          const precise = new BMapGL.Point(pt.lng, pt.lat);
+
+          map.centerAndZoom(precise, ZOOM);
+          marker.setPosition(precise);
+          openInfoWindow(map, pt);
+        },
+        "南宁市",
+      );
+    }
+
+    /* ---- script loading ---- */
+    if (window.BMapGL) {
+      bootstrap();
+    } else {
+      const existing = document.querySelector<HTMLScriptElement>(
+        `script[data-baidu-map]`,
+      );
+      if (existing) {
+        existing.addEventListener("load", bootstrap);
+        if (window.BMapGL) bootstrap();
+      } else {
+        const script = document.createElement("script");
+        script.src = BAIDU_SCRIPT;
+        script.dataset.baiduMap = "";
+        script.async = true;
+        script.onload = bootstrap;
+        document.head.appendChild(script);
+      }
+    }
 
     return () => {
-      map.remove();
-      mapInstanceRef.current = null;
+      cancelled = true;
+      if (mapRef.current) {
+        try {
+          mapRef.current.destroy();
+        } catch {
+          // ignore
+        }
+        mapRef.current = null;
+      }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div
-      ref={mapContainerRef}
+      ref={containerRef}
       className={cn("h-64 w-full rounded-xl bg-neutral-100", className)}
-      aria-label="Company location map"
+      aria-label="Company location map — Baidu Maps"
     />
   );
 }

@@ -17,7 +17,7 @@ interface HeroSectionProps {
 
 /* ── 拆分标语 ── */
 function splitSlogan(title: string): [string, string] {
-  const idx = title.search(/[，,]/);
+  const idx = title.search(/[，,·]/);
   if (idx === -1) return [title, ""];
   return [title.slice(0, idx), title.slice(idx + 1).trim()];
 }

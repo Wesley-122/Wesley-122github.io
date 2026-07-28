@@ -13,7 +13,7 @@ export default async function ProductsServicesPage({ params }: Props) {
     <>
       <PageBanner
         title={isZh ? "产品与服务" : "Products & Services"}
-        subtitle={isZh ? "三大业务板块，覆盖制造企业全链路数字化需求" : "Three business pillars covering manufacturing digital needs"}
+        subtitle={isZh ? "三大业务板块，覆盖企业全链路数字化需求" : "Three business pillars covering enterprise digital needs"}
       />
       <ProductsClient locale={locale as "zh-CN" | "en"} />
     </>
@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: isZh ? "产品与服务" : "Products & Services",
     description: isZh
-      ? "全链路数据治理、制造业定制系统开发、技术人力外包三大核心业务，覆盖企业数字化转型全场景。"
-      : "Full-chain data governance, custom manufacturing systems, and IT outsourcing covering enterprise digital transformation.",
+      ? "数据产品实施覆盖、定制化开发服务、信息化人才赋能三大核心业务，覆盖企业数字化转型全场景。DAMA中国认证团队，70+精英保障交付。"
+      : "Data product implementation, custom development services, and IT talent empowerment covering enterprise digital transformation. DAMA China certified team.",
     alternates: {
       canonical: `/${locale}/products-services`,
       languages: { en: "/en/products-services", "zh-CN": "/zh-CN/products-services" },

@@ -3,7 +3,7 @@
 export const SITE_CONFIG = {
   name: '广西箩筐信息科技有限公司',
   nameEn: 'LKtechnology',
-  fullNameEn: 'Guangxi Luokuang Information Technology Co., Ltd.',
+  fullNameEn: 'GUANGXI LUOKUANG INFORMATION TECHNOLOGY CORPORATION',
   domain: 'www.lk-it.cn',
   founded: 2020,
   teamSize: 70,
@@ -31,18 +31,18 @@ export const NAV_ITEMS = [
 ];
 
 export const INDUSTRIES = [
-  { key: 'metallurgy', label: { zh: '冶金', en: 'Metallurgy' }, icon: 'Factory' },
-  { key: 'automotive', label: { zh: '汽车制造', en: 'Automotive' }, icon: 'Car' },
+  { key: 'metallurgy', label: { zh: '冶金制造', en: 'Metallurgy Mfg' }, icon: 'Factory' },
+  { key: 'automotive', label: { zh: '汽车工业', en: 'Automotive Industry' }, icon: 'Car' },
   { key: 'agriculture', label: { zh: '畜牧农业', en: 'Agriculture' }, icon: 'Leaf' },
-  { key: 'logistics', label: { zh: '物流运输', en: 'Logistics' }, icon: 'Truck' },
-  { key: 'energy', label: { zh: '新能源环保', en: 'New Energy' }, icon: 'Zap' },
-  { key: 'manufacturing', label: { zh: '通用制造', en: 'General Manufacturing' }, icon: 'Cog' },
+  { key: 'logistics', label: { zh: '运输物流', en: 'Transport Logistics' }, icon: 'Truck' },
+  { key: 'energy', label: { zh: '能源环保', en: 'Energy & Environment' }, icon: 'Zap' },
+  { key: 'manufacturing', label: { zh: '智能制造', en: 'Intelligent Mfg' }, icon: 'Cog' },
 ];
 
 export const PRODUCT_CATEGORIES = [
-  { key: 'data_products', label: { zh: '数据产品', en: 'Data Products' } },
-  { key: 'enterprise_apps', label: { zh: '企业应用', en: 'Enterprise Apps' } },
-  { key: 'talent_services', label: { zh: '人才服务', en: 'Talent Services' } },
+  { key: 'data_products', label: { zh: '数据产品实施覆盖', en: 'Data Product Implementation' } },
+  { key: 'enterprise_apps', label: { zh: '定制化开发服务', en: 'Custom Development Services' } },
+  { key: 'talent_services', label: { zh: '信息化人才赋能', en: 'IT Talent Empowerment' } },
 ];
 
 export const ARTICLE_CATEGORIES = [
@@ -52,31 +52,31 @@ export const ARTICLE_CATEGORIES = [
 ];
 
 export const SEO_KEYWORDS_ZH = [
-  '广西数据治理', '柳州MES开发', '工业互联网平台', '制造业数据中台',
-  '冶金数字化', '汽车供应链系统', 'IT驻场外包', '数据中台建设',
-  'ERP系统开发', 'CRM客户管理', 'SCM供应链', 'WMS仓储管理',
-  'EMS能源管理', '轧辊管理系统', 'BI可视化', '数据大屏',
+  '广西数据治理', '工业互联网平台', '数据中台建设', '制造业MES',
+  '冶金数字化', '汽车工业数字化', 'IT驻场外包', 'ERP系统开发',
+  'CRM客户管理', 'SCM供应链', 'WMS仓储管理', 'EMS能源管理',
+  '轧辊管理系统', 'BI可视化', '数据大屏', 'DAMA中国认证',
   '广西箩筐信息科技', 'LKtechnology',
 ];
 
 export const SEO_KEYWORDS_EN = [
-  'Guangxi data governance', 'Liuzhou MES development', 'industrial internet platform',
-  'manufacturing data middle platform', 'metallurgy digitalization', 'automotive supply chain',
-  'IT outsourcing', 'ERP development', 'SCM system', 'MES manufacturing execution',
-  'data governance China', 'LKtechnology',
+  'Guangxi data governance', 'industrial internet platform', 'manufacturing digital transformation',
+  'data middle platform', 'metallurgy digitalization', 'automotive industry digital',
+  'IT talent services', 'ERP development', 'MES manufacturing execution',
+  'data governance China', 'DAMA certified', 'LKtechnology',
 ];
 
 export const META_TEMPLATE = {
   zh: {
-    titleTemplate: '%s | LKtechnology箩筐信息科技-广西工业互联网&数据治理服务商',
-    defaultTitle: 'LKtechnology箩筐信息科技-广西工业互联网与数据治理服务商',
-    defaultDescription: '广西箩筐信息科技有限公司(LKtechnology)专注数据治理与工业互联网，提供数据中台、MES/ERP/CRM/SCM/WMS系统开发、技术人力外包服务。服务柳钢、上汽通用五菱、柳工集团等行业龙头。',
+    titleTemplate: '%s | LKtechnology广西箩筐信息科技-数据治理与工业互联网服务商',
+    defaultTitle: 'LKtechnology广西箩筐信息科技-数据治理与工业互联网服务商',
+    defaultDescription: '广西箩筐信息科技有限公司(LKtechnology)专注数据治理与工业互联网，DAMA中国认证团队，提供数据产品实施覆盖、定制化开发服务、信息化人才赋能。服务柳钢集团、柳工集团、上汽通用五菱等行业龙头。',
     defaultKeywords: SEO_KEYWORDS_ZH.join(', '),
   },
   en: {
-    titleTemplate: '%s | LKtechnology - Industrial Internet & Data Governance Provider',
-    defaultTitle: 'LKtechnology - Guangxi Industrial Internet & Data Governance Provider',
-    defaultDescription: 'LKtechnology specializes in data governance and industrial internet, providing data middle platform, MES/ERP/CRM/SCM/WMS development, and IT outsourcing services for manufacturing enterprises.',
+    titleTemplate: '%s | LKtechnology - Data Governance & Industrial Internet Provider',
+    defaultTitle: 'LKtechnology - Data Governance & Industrial Internet Provider',
+    defaultDescription: 'GUANGXI LUOKUANG INFORMATION TECHNOLOGY CORPORATION (LKtechnology) specializes in data governance and industrial internet. DAMA China certified team providing data product implementation, custom development, and IT talent empowerment.',
     defaultKeywords: SEO_KEYWORDS_EN.join(', '),
   },
 };

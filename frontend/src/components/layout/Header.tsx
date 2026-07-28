@@ -48,17 +48,17 @@ export default function Header({ locale }: HeaderProps) {
     >
       <div className="section-container">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo — 全局L K方形品牌图标 */}
+          {/* Logo — LK品牌图标（从三折页PDF提取） */}
           <Link
             href={locale === "zh-CN" ? "/zh-CN" : "/en"}
             className="flex items-center gap-2"
           >
             <Image
-              src="/images/logo/lk-brand-icon.svg"
+              src="/images/logo/lk-icon-from-pdf.png"
               alt="LKtechnology"
               width={36}
               height={36}
-              className="h-9 w-9 flex-shrink-0"
+              className="h-9 w-9 flex-shrink-0 rounded-lg"
               priority
             />
             <span className="hidden text-lg font-semibold text-neutral-900 sm:block">

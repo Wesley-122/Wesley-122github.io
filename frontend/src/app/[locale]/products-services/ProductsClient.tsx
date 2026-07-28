@@ -12,9 +12,9 @@ export default function ProductsClient({ locale }: { locale: Locale }) {
   const isZh = locale === "zh-CN";
 
   const categories = [
-    { key: "data_products", label: isZh ? "数据产品" : "Data Products", icon: <Database className="h-5 w-5" /> },
-    { key: "enterprise_apps", label: isZh ? "企业应用" : "Enterprise Apps", icon: <Code2 className="h-5 w-5" /> },
-    { key: "talent_services", label: isZh ? "人才服务" : "Talent Services", icon: <Users className="h-5 w-5" /> },
+    { key: "data_products", label: isZh ? "数据产品实施覆盖" : "Data Product Implementation", icon: <Database className="h-5 w-5" /> },
+    { key: "enterprise_apps", label: isZh ? "定制化开发服务" : "Custom Development Services", icon: <Code2 className="h-5 w-5" /> },
+    { key: "talent_services", label: isZh ? "信息化人才赋能" : "IT Talent Empowerment", icon: <Users className="h-5 w-5" /> },
   ];
 
   const products: Record<string, { title: string; desc: string; features: string[] }[]> = {
