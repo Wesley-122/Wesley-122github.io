@@ -57,7 +57,7 @@ export default function SectionWrapper({
   id,
   alt,
   variant = "fade-up",
-  margin = "-100px",
+  margin = "0px",
   duration = 0.6,
 }: SectionWrapperProps) {
   const variants = variantMap[variant];

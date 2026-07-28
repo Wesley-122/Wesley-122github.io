@@ -22,7 +22,8 @@ const casesData: Record<
     summary: { zh: string; en: string };
     fullDescription: { zh: string; en: string };
     technologies: string[];
-    thumbnailUrl: string;
+    thumbnailUrl?: string;
+    aiPrompt?: string;
   }
 > = {
   "liugang-logistics-data-platform": {
@@ -35,7 +36,7 @@ const casesData: Record<
       en: "Built an integrated logistics data middle platform for Liugang Group, connecting procurement, warehousing, and transportation data chains. The project covers contract management, pricing, capacity scheduling, warehousing, and port management modules, breaking down data silos across bases to achieve transparent logistics and significant cost reduction.",
     },
     technologies: ["数据中台", "ETL", "BI", "iPaaS"],
-    thumbnailUrl: "/images/cases/steel-plant.png",
+    aiPrompt: "Futuristic logistics command center, holographic cargo ships and trucks floating in mid-air connected by glowing blue data streams, digital twin of a port and steel warehouse, cyan and navy color palette, cinematic volumetric lighting, minimalist cyberpunk interface aesthetic, photorealistic 8K render --ar 16:9",
   },
   "baojun-process-management": {
     title: { zh: "宝骏工艺文件管理系统", en: "Baojun Process Document Mgmt" },
@@ -47,7 +48,7 @@ const casesData: Record<
       en: "Developed a process document management system for SGMW Baojun manufacturing base, focusing on assembly workshop process data lifecycle management. Established a unified document control system with version management, enabling online approval, secure sharing, and rapid distribution with significant efficiency improvements.",
     },
     technologies: ["MES", "文档管理", "Vue.js", "Spring Boot"],
-    thumbnailUrl: "/images/cases/auto-assembly.png",
+    aiPrompt: "Abstract digital automotive assembly line, glowing blue wireframe car parts floating through a cyberpunk factory, holographic document nodes connected by light beams, clean white and electric blue tones, soft volumetric fog, sci-fi industrial aesthetic, 8K photorealistic render --ar 16:9",
   },
   "liugang-roll-management": {
     title: { zh: "柳钢冷轧轧辊管理系统", en: "Liugang Cold Roll Mgmt System" },
@@ -59,7 +60,7 @@ const casesData: Record<
       en: "Developed a cold roll lifecycle management system for Liugang Zhongjin, covering procurement, warehousing, usage tracking, grinding management, and retirement. The system digitizes roll records, auto-counts usage, and intelligently calculates grinding amounts to reduce costs and improve utilization.",
     },
     technologies: ["Java", "Spring Boot", "物联网", "MySQL"],
-    thumbnailUrl: "/images/cases/steel-rolling.png",
+    aiPrompt: "Massive industrial steel rolling mill with glowing neon blue heat signatures on cylindrical rollers, digital twin overlay showing wear analytics in holographic cyan, sparks of light flowing through the production line, dark atmospheric factory with cinematic god rays, sci-fi heavy industry concept art 8K --ar 16:9",
   },
   "dafeng-data-governance": {
     title: { zh: "大丰禽业数据质量梳理", en: "Dafeng Poultry Data Quality" },
@@ -71,7 +72,7 @@ const casesData: Record<
       en: "Achieved full-process digitalization for Dafeng Poultry, covering 5 industry chains including eggs and poultry meat. The project spans data entry, organization, and visualization across breeding, processing, and sales, forming a data-driven business cycle with standardized farming data and automated financial accounting.",
     },
     technologies: ["数据治理", "BI", "养殖系统", "溯源"],
-    thumbnailUrl: "/images/cases/poultry-farm.png",
+    aiPrompt: "Modern high-tech poultry farm with translucent holographic data overlays floating above, glowing blue supply chain lines connecting farm to table, clean minimal white and cyan color palette, geometric data nodes forming a network, bright airy atmosphere, futuristic agricultural technology concept 8K --ar 16:9",
   },
   "saike-energy-management": {
     title: { zh: "赛克瑞浦能源管理系统", en: "Saikeruipu Energy Management" },
@@ -83,7 +84,7 @@ const casesData: Record<
       en: "Built a unified energy management system for Saikeruipu's 20GWh power battery project, covering water, electricity, gas, and heat monitoring with optimized scheduling. The system achieves cost reduction, efficiency improvement, and green goals through real-time energy data collection and intelligent distribution optimization.",
     },
     technologies: ["IoT", "能源管理", "大屏", "碳监测"],
-    thumbnailUrl: "/images/cases/battery-energy.png",
+    aiPrompt: "Massive futuristic battery gigafactory interior, glowing energy flow lines in neon blue and green connecting floating hexagonal battery cells, real-time power graphs holographically projected in the air, clean modern industrial architecture, cold cyan ambient light, ultra-detailed sci-fi concept art 8K --ar 16:9",
   },
   "dongxin-iot-platform": {
     title: { zh: "东信物联网平台dedge", en: "Dongxin IoT Platform dedge" },
@@ -95,7 +96,7 @@ const casesData: Record<
       en: "Built the dedge IIoT platform for Liugang Dongxin, integrating edge computing capabilities for low-latency industrial internet scenarios. The platform supports device-cloud bidirectional connectivity, data collection, and remote control, improving production line productivity while reducing on-site maintenance costs.",
     },
     technologies: ["物联网", "边缘计算", "MQTT", "Cloud"],
-    thumbnailUrl: "/images/cases/iiot-factory.png",
+    aiPrompt: "Abstract edge computing network visualization, glowing blue nodes at factory floor level connecting upward to cloud servers, pulsing data particles flowing through geometric circuit patterns, dark industrial space illuminated by cyan light trails, minimalist tech aesthetic, 8K photorealistic --ar 16:9",
   },
   "trs-sales-management": {
     title: { zh: "唐人神生猪销售系统", en: "TRS Pig Sales System" },
@@ -107,7 +108,7 @@ const casesData: Record<
       en: "Developed a unified sales management system for TRS Group's breeding farms, covering sales applications, pricing strategies, order management, production scheduling, vehicle registration, weighing, financial settlement, and receipt printing. The system supports mobile operations for farm staff.",
     },
     technologies: ["ERP", "移动端", "称重系统", "结算"],
-    thumbnailUrl: "/images/cases/livestock-farm.png",
+    aiPrompt: "Modern livestock trading hub visualization, floating translucent data cards showing pricing and order flow, blue light trails connecting digital weighing scales and logistics vehicles, clean white architecture with cyan accents, bright and airy atmosphere, futuristic agritech concept art 8K --ar 16:9",
   },
   "ok-driver-management": {
     title: { zh: "OK出行司机管理系统", en: "OK Chuxing Driver Mgmt System" },
@@ -119,7 +120,7 @@ const casesData: Record<
       en: "Custom-developed driver payment and training management system for OK Chuxing, covering auto billing, arrears collection, and safety education with a companion mobile app for taxi drivers. The system manages the full driver lifecycle including onboarding, attendance, payments, training, and performance evaluation.",
     },
     technologies: ["运营系统", "司机管理", "数据大屏", "移动端"],
-    thumbnailUrl: "/images/cases/fleet-management.png",
+    aiPrompt: "Futuristic smart city transportation network, glowing blue route lines connecting floating vehicle icons across a neon-lit cityscape, holographic driver dashboard with abstract data rings, dark navy and cyan color scheme, sleek modern mobility concept, 8K photorealistic render --ar 16:9",
   },
 };
 
@@ -151,15 +152,20 @@ export default async function CaseDetailPage({ params }: Props) {
           </Link>
 
           {/* Hero Image */}
-          <div className="relative mb-10 aspect-video w-full overflow-hidden rounded-xl bg-neutral-100">
+          <div className="relative mb-10 aspect-video w-full overflow-hidden rounded-xl bg-gradient-to-br from-primary-dark via-primary to-accent">
             <Image
-              src={caseData.thumbnailUrl}
+              src={
+                caseData.aiPrompt
+                  ? `https://image.pollinations.ai/prompt/${encodeURIComponent(caseData.aiPrompt)}?width=1200&height=675&nologo=true&seed=42`
+                  : (caseData.thumbnailUrl ?? "")
+              }
               alt={isZh ? caseData.title.zh : caseData.title.en}
               fill
               sizes="(max-width: 768px) 100vw, 896px"
               className="object-cover"
-              unoptimized
+              unoptimized={!!caseData.aiPrompt}
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/60 via-primary/15 to-transparent" />
           </div>
 
           {/* Meta */}

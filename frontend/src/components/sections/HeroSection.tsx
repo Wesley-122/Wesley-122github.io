@@ -45,10 +45,10 @@ export default function HeroSection({ locale, title, subtitle, ctaPrimary, ctaSe
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-[90vh] items-center overflow-hidden bg-gradient-to-br from-primary-dark via-primary to-accent"
+      className="relative flex min-h-[100dvh] items-center bg-gradient-to-br from-primary-dark via-primary to-accent"
     >
-      {/* ═══════ 背景层 ═══════ */}
-      <div className={mounted ? "hero-bg-animate absolute inset-0" : "absolute inset-0 opacity-0"}>
+      {/* ═══════ 背景层（溢出裁剪仅限装饰圆环） ═══════ */}
+      <div className={mounted ? "hero-bg-animate absolute inset-0 overflow-hidden" : "absolute inset-0 overflow-hidden opacity-0"}>
         <motion.div className="absolute inset-0 opacity-10" style={{ opacity: bgOpacity }}>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,white_0%,transparent_68%)]" />
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
@@ -68,8 +68,11 @@ export default function HeroSection({ locale, title, subtitle, ctaPrimary, ctaSe
         />
       </div>
 
+      {/* 防白边遮罩：在 Hero 底部叠一层同色渐变，覆盖与下一节的 1px 渲染间隙 */}
+      <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-b from-transparent to-primary-dark pointer-events-none" aria-hidden="true" />
+
       {/* ═══════ 内容层 ═══════ */}
-      <motion.div className="section-container relative z-10 py-20" style={{ y: contentY }}>
+      <motion.div className="section-container relative z-10 pt-20 pb-0" style={{ y: contentY }}>
         <div
           className={
             mounted

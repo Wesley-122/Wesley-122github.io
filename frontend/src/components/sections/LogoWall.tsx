@@ -46,13 +46,13 @@ export default function LogoWall({ locale, title, logos }: LogoWallProps) {
           {[...logos, ...logos].map((logo, index) => (
             <div
               key={`${logo.name}-${index}`}
-              className="flex h-20 w-40 flex-shrink-0 items-center justify-center rounded-lg bg-white px-4 py-3 shadow-sm transition-all duration-300 hover:shadow-md"
+              className="flex h-20 w-40 flex-shrink-0 items-center justify-center rounded-lg bg-white shadow-sm transition-all duration-300 hover:shadow-md"
             >
               <Image
                 src={logo.logoUrl}
                 alt={logo.name}
-                width={140}
-                height={56}
+                width={160}
+                height={80}
                 className="max-h-14 max-w-[140px] object-contain"
                 unoptimized
               />

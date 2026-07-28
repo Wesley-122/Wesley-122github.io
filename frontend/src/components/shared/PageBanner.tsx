@@ -45,7 +45,7 @@ export default function PageBanner({ title, subtitle }: PageBannerProps) {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-gradient-to-r from-primary-dark via-primary to-primary-dark py-20"
+      className="relative flex min-h-[220px] flex-col items-center justify-center overflow-hidden bg-gradient-to-r from-primary-dark via-primary to-primary-dark md:min-h-[280px]"
     >
       {/* 几何装饰 — 视差漂移 */}
       <div className="absolute inset-0 opacity-[0.06]">
@@ -57,7 +57,6 @@ export default function PageBanner({ title, subtitle }: PageBannerProps) {
           className="absolute bottom-0 left-1/4 h-48 w-48 -translate-x-1/2 rounded-full border border-white"
           style={{ y: circleBottomY }}
         />
-        {/* Extra subtle decoration */}
         <motion.div
           className="absolute left-0 top-1/2 h-32 w-32 -translate-x-1/2 rounded-full border border-white/50"
           style={{ y: useTransform(scrollYProgress, [0, 1], [0, -50]) }}

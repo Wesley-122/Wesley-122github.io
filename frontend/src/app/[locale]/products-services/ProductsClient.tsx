@@ -41,26 +41,26 @@ export default function ProductsClient({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <SectionWrapper>
+      <SectionWrapper className="relative z-10 !pt-6 md:!pt-8 !pb-24 md:!pb-32">
         <Tabs defaultValue="data_products" className="w-full">
-          <TabsList className="mx-auto mb-12 flex w-fit">
+          <TabsList className="mx-auto mb-6 flex w-fit">
             {categories.map((cat) => (
-              <TabsTrigger key={cat.key} value={cat.key} className="gap-2">
+              <TabsTrigger key={cat.key} value={cat.key} className="gap-2 text-sm">
                 {cat.icon} {cat.label}
               </TabsTrigger>
             ))}
           </TabsList>
           {Object.entries(products).map(([key, items]) => (
             <TabsContent key={key} value={key}>
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {items.map((product, idx) => (
-                  <FadeInView key={idx} delay={idx * 0.08} distance={24}>
-                  <div className="card flex flex-col p-6 h-full">
-                    <h3 className="text-lg font-semibold text-neutral-900">{product.title}</h3>
-                    <p className="mt-2 flex-1 text-sm text-neutral-500">{product.desc}</p>
-                    <div className="mt-4 flex flex-wrap gap-1.5">
+                  <FadeInView key={idx} delay={idx * 0.06} distance={16}>
+                  <div className="card flex flex-col p-4 h-full">
+                    <h3 className="text-base font-semibold text-neutral-900">{product.title}</h3>
+                    <p className="mt-1.5 flex-1 text-xs leading-relaxed text-neutral-500">{product.desc}</p>
+                    <div className="mt-3 flex flex-wrap gap-1">
                       {product.features.map((f) => (
-                        <Badge key={f} variant="accent" className="text-xs">{f}</Badge>
+                        <Badge key={f} variant="accent" className="text-[10px] px-1.5 py-0">{f}</Badge>
                       ))}
                     </div>
                   </div>

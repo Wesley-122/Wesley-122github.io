@@ -70,7 +70,7 @@ export default async function HomePage({ params }: Props) {
         ? "构建涵盖合同、价格、运力、仓储、港口等中心板块，打通各基地物流数据壁垒，实现物流过程透明化、数据共享与互联互通，汽运与联运成本有效降低。"
         : "Built logistics data platform covering contracts, pricing, capacity, warehousing, and ports. Enabled transparent logistics, data sharing, and significant cost reduction.",
       technologies: ["数据中台", "ETL", "BI", "iPaaS"],
-      thumbnailUrl: "/images/cases/steel-plant.png",
+      aiPrompt: "Futuristic logistics command center, holographic cargo ships and trucks floating in mid-air connected by glowing blue data streams, digital twin of a port and steel warehouse, cyan and navy color palette, cinematic volumetric lighting, minimalist cyberpunk interface aesthetic, photorealistic 8K render --ar 16:9",
     },
     {
       slug: "baojun-process-management",
@@ -81,7 +81,7 @@ export default async function HomePage({ params }: Props) {
         ? "聚焦总装车间工艺数据全生命周期管理，建立统一文控体系与版本管理机制，实现工艺文件线上审批、安全共享与快速下发，文件流转效率大幅提升。"
         : "Focused on assembly workshop process data lifecycle management. Established unified document control with version management, online approval, and secure sharing.",
       technologies: ["MES", "文档管理", "Vue.js"],
-      thumbnailUrl: "/images/cases/auto-assembly.png",
+      aiPrompt: "Abstract digital automotive assembly line, glowing blue wireframe car parts floating through a cyberpunk factory, holographic document nodes connected by light beams, clean white and electric blue tones, soft volumetric fog, sci-fi industrial aesthetic, 8K photorealistic render --ar 16:9",
     },
     {
       slug: "saike-energy-management",
@@ -92,7 +92,7 @@ export default async function HomePage({ params }: Props) {
         ? "为20GWh动力电池项目打造统一能源管理系统，覆盖水电气热全介质监测与优化调度，实现「降本、提效、增绿」目标，保障大规模制造运营可持续性。"
         : "Built unified energy management system for 20GWh battery project. Covers all media monitoring with optimized scheduling for cost, efficiency, and sustainability goals.",
       technologies: ["IoT", "能源管理", "大屏", "碳监测"],
-      thumbnailUrl: "/images/cases/battery-energy.png",
+      aiPrompt: "Massive futuristic battery gigafactory interior, glowing energy flow lines in neon blue and green connecting floating hexagonal battery cells, real-time power graphs holographically projected in the air, clean modern industrial architecture, cold cyan ambient light, ultra-detailed sci-fi concept art 8K --ar 16:9",
     },
   ];
 
@@ -165,7 +165,7 @@ export default async function HomePage({ params }: Props) {
       />
 
       {/* 2. Core Business Features */}
-      <SectionWrapper>
+      <SectionWrapper className="-mt-[1px]">
         <FeatureGrid
           locale={locale as Locale}
           title={isZh ? "核心业务" : "Core Business"}

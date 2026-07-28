@@ -24,15 +24,13 @@ export default function FeatureGrid({ locale, title, subtitle, features }: Featu
   return (
     <div>
       <div className="mb-12 text-center md:mb-16">
-        <FadeInView direction="up">
-          <h2 className="text-balance text-3xl font-bold text-neutral-900 md:text-4xl">
-            {title}
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-balance text-lg text-neutral-500">
-            {subtitle}
-          </p>
-          <div className="mx-auto mt-6 h-1 w-16 rounded-full bg-primary" />
-        </FadeInView>
+        <h2 className="text-balance text-3xl font-bold text-neutral-900 md:text-4xl">
+          {title}
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-balance text-lg text-neutral-500">
+          {subtitle}
+        </p>
+        <div className="mx-auto mt-6 h-1 w-16 rounded-full bg-primary" />
       </div>
 
       <div className="grid gap-8 md:grid-cols-3">
