@@ -16,6 +16,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 interface PageBannerProps {
   title: string;
   subtitle?: string;
+  /** 覆盖外层 section 的类名，如需要全屏高度时可传入 h-screen 等 */
+  className?: string;
 }
 
 const bannerFadeIn = {
@@ -30,7 +32,7 @@ const subtitleFadeIn = {
   transition: { duration: 1.2, delay: 0.4, ease: "easeOut" as const },
 };
 
-export default function PageBanner({ title, subtitle }: PageBannerProps) {
+export default function PageBanner({ title, subtitle, className = "" }: PageBannerProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -45,7 +47,7 @@ export default function PageBanner({ title, subtitle }: PageBannerProps) {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-[220px] flex-col items-center justify-center overflow-hidden bg-gradient-to-r from-primary-dark via-primary to-primary-dark md:min-h-[280px]"
+      className={`relative flex min-h-[220px] flex-col items-center justify-center overflow-hidden bg-gradient-to-r from-primary-dark via-primary to-primary-dark md:min-h-[280px] ${className}`}
     >
       {/* 几何装饰 — 视差漂移 */}
       <div className="absolute inset-0 opacity-[0.06]">

@@ -17,6 +17,8 @@ interface NewsCardProps {
   coverUrl?: string;
   /** Stagger delay index (0-based). Used for grid layouts. */
   delayIndex?: number;
+  /** 锚点 id，用于目录跳转。不传则默认为 news-{slug} */
+  anchorId?: string;
 }
 
 export default function NewsCard({
@@ -28,12 +30,15 @@ export default function NewsCard({
   publishDate,
   coverUrl,
   delayIndex = 0,
+  anchorId,
 }: NewsCardProps) {
+  const id = anchorId ?? `news-${slug}`;
   return (
     <FadeInView delay={delayIndex * 0.12} distance={30}>
       <Link
+        id={id}
         href={`/${locale}/news/${slug}`}
-        className="group card flex flex-col overflow-hidden h-full"
+        className="group card flex flex-col overflow-hidden h-full scroll-mt-24"
       >
         {coverUrl && (
           <div className="aspect-video w-full overflow-hidden bg-neutral-100">

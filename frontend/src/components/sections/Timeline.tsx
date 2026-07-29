@@ -52,7 +52,9 @@ export default function Timeline({ milestones }: TimelineProps) {
     offset: ["start start", "end start"],
   });
 
-  const x = useTransform(scrollYProgress, [0.08, 0.92], [0, -scrollDistance], {
+  // 输入区间末尾从 0.92 降到 0.78，为时间轴滚动结束后留出足够的减速缓冲区
+  // 防止粘性布局释放时滚动动量直接冲过下一个板块（资质荣誉）
+  const x = useTransform(scrollYProgress, [0.08, 0.78], [0, -scrollDistance], {
     clamp: true,
   });
 
@@ -70,7 +72,8 @@ export default function Timeline({ milestones }: TimelineProps) {
         <div
           ref={desktopRef}
           className="relative"
-          style={{ height: "350vh" }}
+          // 总高度 = 活跃滚动区 / 0.70，保证滚动手感不变，末尾留足减速空间
+          style={{ height: "420vh" }}
         >
         <div className="sticky top-0 flex h-screen items-center overflow-hidden bg-white">
           {/* 渐变遮罩 */}

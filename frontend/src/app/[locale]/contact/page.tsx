@@ -1,7 +1,7 @@
 import SectionWrapper from "@/components/shared/SectionWrapper";
 import PageBanner from "@/components/shared/PageBanner";
 import ContactForm from "@/components/forms/ContactForm";
-import ContactMap from "@/components/shared/ContactMapLoader";
+import CompanyLocationSection from "@/components/sections/CompanyLocationSection";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -28,11 +28,11 @@ export default async function ContactPage({ params }: Props) {
           </div>
 
           {/* Contact Info */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 flex flex-col">
             <h2 className="mb-6 text-2xl font-bold text-neutral-900">
               {isZh ? "联系信息" : "Contact Information"}
             </h2>
-            <div className="space-y-6">
+            <div className="flex-1 flex flex-col justify-between">
               <div className="flex items-start gap-3">
                 <div className="mt-0.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-accent-light text-primary">
                   <MapPin className="h-5 w-5" />
@@ -79,11 +79,12 @@ export default async function ContactPage({ params }: Props) {
               </div>
             </div>
 
-            {/* Map */}
-            <ContactMap className="mt-8" />
           </div>
         </div>
       </SectionWrapper>
+
+      {/* 公司位置 — 与"关于我们"页面共用同一组件，视觉 100% 一致 */}
+      <CompanyLocationSection isZh={isZh} />
     </>
   );
 }
